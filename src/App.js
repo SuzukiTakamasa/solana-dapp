@@ -1,8 +1,8 @@
+import React, {useEffect} from 'react';
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 
-// 定数を宣言します。
-const TWITTER_HANDLE = 'あなたのTwitterハンドル';
+const TWITTER_HANDLE = 'twitter handle';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
