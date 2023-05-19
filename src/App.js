@@ -6,6 +6,28 @@ const TWITTER_HANDLE = 'twitter handle';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
+  const checkIfWalletisConnected = async () => {
+    try {
+      const {solana } = window;
+
+      if (solana && solana.isPhantom) {
+        console.log('Phantom wallet found.')
+      } else {
+        alert('Solana object not found, get a Phantom Wallet');
+      }
+    } catch(e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    const onLoad = async () => {
+      await checkIfWalletIsConnected();
+    };
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onload);
+  }, []);
+
   return (
     <div className="App">
       <div className="container">
