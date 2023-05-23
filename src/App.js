@@ -6,7 +6,7 @@ const TWITTER_HANDLE = 'twitter handle';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
-  const checkIfWalletisConnected = async () => {
+  const checkIfWalletIsConnected = async () => {
     try {
       const {solana } = window;
 
