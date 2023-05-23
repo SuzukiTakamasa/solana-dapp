@@ -6,15 +6,21 @@ const TWITTER_HANDLE = 'twitter handle';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
-  
+
   const checkIfWalletIsConnected = async () => {
     try {
       const {solana } = window;
 
-      if (solana && solana.isPhantom) {
-        console.log('Phantom wallet found.');
-      } else {
-        alert('Solana object not found, get a Phantom Wallet');
+      if (solana) {
+        if (solana && solana.isPhantom) {
+          console.log('Phantom wallet found.');
+
+          const response = await solana.connect({ onlyIfTrusted: true});
+          console.log('Connected with Public Key:',
+          response.publickey.toString());
+        } else {
+          alert('Solana object not found! Get a Phantom Wallet');
+        }
       }
     } catch(e) {
       console.log(e);
